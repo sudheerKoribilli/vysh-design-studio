@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vysh - Interior Design & Architecture</title>
+  <link rel="icon" type="image/png" href="assests/Logo favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #141414;
+      --secondary: #1f1f1f;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,.7);
+      --border: rgba(255,255,255,.1);
+      --card-bg: rgba(255,255,255,.05);
+      --transition: all .25s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Manrope, "Manrope Placeholder", sans-serif;
+      background: var(--primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 20; background: rgba(20,20,20,.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,.04); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+    .logo { display: inline-block; }
+    .logo img { height: clamp(26px, 4.2vw, 38px); width: auto; max-width: 100%; display: block; object-fit: contain; }
+    .links { display: flex; gap: 28px; }
+    .links a { color: var(--text-secondary); transition: var(--transition); font-weight: 600; }
+    .links a:hover { color: var(--text-primary); }
+    .cta { background: #fff; color: #141414; padding: 10px 18px; border-radius: 999px; font-weight: 700; border: 2px solid #fff; transition: var(--transition); }
+    .cta:hover { background: transparent; color: #fff; }
+    .menu-btn { display: none; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; }
+
+    main { padding-top: 96px; }
+
+    /* Hero */
+    .tag { display: inline-flex; align-items: center; justify-content: center; padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-secondary); background: var(--secondary); font-size: 14px; margin-bottom: 14px; }
+    .hero { text-align: center; padding: 48px 0 24px; }
+    .hero h1 { font-size: 64px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; margin: 0 auto 10px; max-width: 900px; }
+    .hero p { color: var(--text-secondary); max-width: 720px; margin: 0 auto; }
+
+    /* Form */
+    .form-wrap { margin: 42px auto 64px; max-width: 920px; background: var(--secondary); border: 1px solid var(--border); border-radius: 24px; box-shadow: 0 16px 48px rgba(0,0,0,.25); padding: 22px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .label { font-size: 13px; color: var(--text-secondary); }
+    .input, .select, .textarea { width: 100%; background: #232323; color: var(--text-primary); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 14px 14px; outline: none; transition: var(--transition); }
+    .textarea { height: 160px; resize: vertical; }
+    .input:focus, .select:focus, .textarea:focus { border-color: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.08); }
+    .submit { margin-top: 18px; width: 100%; border: 0; background: #fff; color: #141414; padding: 14px 18px; border-radius: 999px; font-weight: 800; cursor: pointer; transition: var(--transition); }
+    .submit:hover { background: transparent; color: #fff; border: 2px solid #fff; }
+
+    /* Contact Cards */
+    .cards { max-width: 1000px; margin: 18px auto 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .card { background: var(--secondary); border: 1px solid var(--border); border-radius: 24px; padding: 36px 20px; text-align: center; box-shadow: 0 12px 40px rgba(0,0,0,.25); display: block; transition: transform .15s ease, border-color .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.18); box-shadow: 0 16px 50px rgba(0,0,0,.3); }
+    .icon { width: 56px; height: 56px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: rgba(255,255,255,.06); margin-bottom: 10px; border: 1px solid var(--border); }
+    .card h4 { color: var(--text-secondary); margin-bottom: 6px; font-weight: 600; }
+    .card p { font-size: 18px; font-weight: 700; }
+    .card--full { grid-column: 1 / -1; }
+
+    /* Footer-like info (same as home contact info) */
+    .contact-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin: 80px auto; max-width: 1200px; }
+    .contact-brand h3 { font-size: 36px; margin-bottom: 10px; }
+    .contact-brand p { color: var(--text-secondary); max-width: 460px; margin-bottom: 16px; }
+    .footer-heading { font-size: 18px; margin-bottom: 12px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin: 8px 0; }
+    .footer-links a { color: var(--text-secondary); }
+    .footer-links a:hover { color: var(--text-primary); }
+
+    /* Footer (mirrors vysh.html) */
+    footer { background: #1a1a1a; padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-brand .logo { margin-bottom: 16px; display: block; }
+    .footer-description { color: var(--text-secondary); margin-bottom: 24px; }
+    .social-links { display: flex; gap: 16px; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--card-bg); transition: var(--transition); }
+    .social-links a:hover { background: #333; transform: translateY(-3px); }
+    .footer-bottom { padding-top: 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary); font-size: 14px; }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom .logo-img { height: clamp(22px, 3.2vw, 28px); width: auto; display: block; object-fit: contain; }
+
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 48px; }
+      .grid { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; }
+      .contact-info { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 36px; }
+      .contact-info { grid-template-columns: 1fr; }
+    }
+
+    /* Mobile nav dropdown */
+    @media (max-width: 768px) {
+      .cta { display: none; }
+      .menu-btn { display: block; }
+      .nav { position: relative; }
+      .links {
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(20,20,20,.98);
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 20px 12px;
+      }
+      .links a { padding: 12px 4px; }
+      .links.open { display: flex; }
+      .links .contact-link { display: block; }
+    }
+    /* Hide duplicate contact link on desktop */
+    .links .contact-link { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="/vysh.html"><img src="assests/Logo.png" alt="Vysh Design Studio logo"></a>
+      <nav class="links">
+        <a href="/vysh.html#about">About</a>
+        <a href="/vysh.html#services">Services</a>
+        <a href="/vysh.html#projects">Projects</a>
+        <a href="/vysh.html#testimonials">Testimonials</a>
+        <a href="#contact" class="contact-link">Contact</a>
+      </nav>
+      <a class="cta" href="#contact">Contact us</a>
+      <button class="menu-btn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="tag">Contact us</div>
+      <h1>Let’s bring your<br/>dream space to life</h1>
+      <p>Reach out to discuss your ideas, ask a question, or request a quote.</p>
+
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
+  <form id="contact" class="form-wrap" action="https://script.google.com/macros/s/AKfycbw9CAwLWLxwDUu7cHS7ttBYFQONoIqIWUjOifL_1ldmPdEuKKuvvpDhpCV9q6e89bAd/exec" 
+      method="POST" target="hidden_iframe">
+  <div class="grid">
+    <div class="field">
+      <label class="label" for="name">Full name</label>
+      <input id="name" class="input" type="text" name="name" placeholder="Full Name" required />
+    </div>
+    <div class="field">
+      <label class="label" for="email">Email address</label>
+      <input id="email" class="input" type="email" name="email" placeholder="vysh@gmail.com" required />
+    </div>
+    <div class="field">
+      <label class="label" for="phone">Phone number</label>
+      <input id="phone" class="input" type="tel" name="phone" placeholder="+91 9876543210" />
+    </div>
+    <div class="field">
+      <label class="label" for="service">Service type</label>
+      <select id="service" class="select" name="service">
+        <option>Interior design</option>
+        <option>Residential renovation</option>
+        <option>Commercial design</option>
+        <option>Landscape</option>
+      </select>
+    </div>
+    <div class="field" style="grid-column: 1 / -1;">
+      <label class="label" for="message">Message</label>
+      <textarea id="message" class="textarea" name="message" placeholder="Let us know how we can help you..."></textarea>
+    </div>
+  </div>
+  <button class="submit" type="submit">Submit</button>
+</form>
+
+    </section>
+
+    <section class="container cards">
+      <a class="card" href="mailto:vyshinteriorstudio@gmail.com">
+        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+        <h4>Email us at</h4>
+        <p>vyshinteriorstudio@gmail.com</p>
+      </a>
+      <a class="card" href="tel:9390394694">
+        <div class="icon"><i class="fa-solid fa-phone"></i></div>
+        <h4>Give us a call</h4>
+        <p>9390394694</p>
+      </a>
+      <a class="card card--full" href="https://maps.app.goo.gl/hQDX9UWoNQsRrc5J9" target="_blank" rel="noopener">
+        <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+        <h4>Visit our office</h4>
+        <p>Flat No:102,1st Floor, sri Ikon residency, Plot No 496, near Miyapur, Mathrusree Nagar, Hafeezpet, Hyderabad, Telangana 500049</p>
+      </a>
+    </section>
+
+
+  </main>
+
+   <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/vysh.html" class="logo"><img src="assests/Logo.png" alt="Vysh Design Studio logo"></a>
+                    <p class="footer-description">Creating beautiful, functional spaces that reflect your unique style and enhance your lifestyle.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/vysh_design_studio/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <!-- <a href="https://www.pinterest.com/" target="_blank" rel="noopener"><i class="fab fa-pinterest"></i></a> -->
+                        <!-- <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a> -->
+                        <!-- <a href="https://www.houzz.com/" target="_blank" rel="noopener"><i class="fab fa-houzz"></i></a> -->
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="/vysh.html#services">Residential Design</a></li>
+                        <li><a href="/vysh.html#services">Commercial Design</a></li>
+                        <li><a href="/vysh.html#services">Space Planning</a></li>
+                        <li><a href="/vysh.html#services">Custom Furniture</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/vysh.html#about">About Us</a></li>
+                        <li><a href="/vysh.html#projects">Portfolio</a></li>
+                        <li><a href="/vysh.html#faq">Process</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:vyshinteriorstudio@gmail.com">vyshinteriorstudio@gmail.com</a></li>
+                        <li><a href="tel:+919390394694">+91 93903 94694</a></li>
+                        <li>Flat No:102, 1st Floor</li>
+                        <li>Mathrusree Nagar, Hafeezpet, Hyderabad</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© <span id="y"></span> Vysh Interior Design. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<script>
+  // Dynamic year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Submission UI feedback (non-blocking)
+  document.querySelector('.form-wrap').addEventListener('submit', function() {
+    alert('✅ Thank you! Your message has been submitted.');
+  });
+
+  // Mobile menu toggle
+  (function(){
+    const btn = document.querySelector('.menu-btn');
+    const links = document.querySelector('.links');
+    if (!btn || !links) return;
+    btn.addEventListener('click', ()=> links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> links.classList.remove('open')));
+    window.addEventListener('resize', ()=> { if (window.innerWidth > 768) links.classList.remove('open'); });
+  })();
+</script>
+
+</body>
+</html>
