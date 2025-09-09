@@ -687,7 +687,7 @@
             padding-top: 40px;
             border-top: 1px solid var(--border);
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             color: var(--text-secondary);
             font-size: 14px;
@@ -696,6 +696,15 @@
         .footer-bottom-links {
             display: flex;
             gap: 24px;
+        }
+        /* Highlight for Digitalwin credit */
+        .designed-by a {
+            color: #A88A5F;
+            font-weight: 800;
+            text-decoration: underline;
+        }
+        .designed-by a:hover {
+            color: #ffffff;
         }
 
         /* Animations */
@@ -1194,10 +1203,10 @@
             <h2 class="about-heading"><span id="aboutTypeText" class="typewriter" data-text="We’re a team of designers, architects, and builders turning spaces into works of art. From interiors to landscapes, we deliver lasting results tailored to your vision."></span></h2>
 
             <div class="stats-grid">
-                <div class="stat-item"><h3><span class="stat-number" data-target="15">0</span>+</h3><p>Years of experience</p></div>
-                <div class="stat-item"><h3><span class="stat-number" data-target="25">0</span>+</h3><p>Talented team members</p></div>
-                <div class="stat-item"><h3><span class="stat-number" data-target="100">0</span>+</h3><p>Completed projects</p></div>
-                <div class="stat-item"><h3><span class="stat-number" data-target="9">0</span>+</h3><p>Industry awards won</p></div>
+                <div class="stat-item"><h3><span class="stat-number" data-target="5">0</span>+</h3><p>Years of experience</p></div>
+                <div class="stat-item"><h3><span class="stat-number" data-target="10">0</span>+</h3><p>Talented team members</p></div>
+                <div class="stat-item"><h3><span class="stat-number" data-target="50">0</span>+</h3><p>Completed projects</p></div>
+                <div class="stat-item"><h3><span class="stat-number" data-target="99">0</span>%</h3><p>Customer satisfaction</p></div>
             </div>
 
             <div class="about-cards">
@@ -1242,7 +1251,7 @@
                         <div class="service-icon"><i class="fas fa-couch"></i></div>
                         <h3 class="service-title">Residential Design</h3>
                         <p class="service-description">Transform your home into a sanctuary with our personalized residential design solutions.</p>
-                        <a href="#" class="service-cta">View in detail</a>
+                        <!-- <a href="#" class="service-cta">View in detail</a> -->
                     </div>
                 </div>
 
@@ -1252,7 +1261,7 @@
                         <div class="service-icon"><i class="fas fa-building"></i></div>
                         <h3 class="service-title">Commercial Design</h3>
                         <p class="service-description">Create inspiring workspaces that reflect your brand identity and enhance productivity.</p>
-                        <a href="#" class="service-cta">View in detail</a>
+                        <!-- <a href="#" class="service-cta">View in detail</a> -->
                     </div>
                 </div>
 
@@ -1262,7 +1271,7 @@
                         <div class="service-icon"><i class="fas fa-palette"></i></div>
                         <h3 class="service-title">Custom Furniture</h3>
                         <p class="service-description">Bespoke furniture pieces designed specifically for your space and aesthetic preferences.</p>
-                        <a href="#" class="service-cta">View in detail</a>
+                        <!-- <a href="#" class="service-cta">View in detail</a> -->
                     </div>
                 </div>
 
@@ -1272,7 +1281,7 @@
                         <div class="service-icon"><i class="fas fa-door-open"></i></div>
                         <h3 class="service-title">Space Decoration</h3>
                         <p class="service-description">Beautifully styled spaces with curated decor that elevate mood and reflect your personality.</p>
-                        <a href="#" class="service-cta">View in detail</a>
+                        <!-- <a href="#" class="service-cta">View in detail</a> -->
                     </div>
                 </div>
             </div>
@@ -1595,12 +1604,13 @@
             </div>
             
             <div class="footer-bottom">
-                <p>© 2023 Vysh Interior Design. All rights reserved.</p>
-                <div class="footer-bottom-links">
+                <!-- <p>© 2023 Vysh Interior Design. All rights reserved.</p> -->
+                <!-- <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
                     <a href="#">Cookie Policy</a>
-                </div>
+                </div> -->
+                <p class="designed-by">Designed by Digitalwin Technologies - <a href="https://digitalwin.in/" target="_blank" rel="noopener">digitalwin.in</a></p>
             </div>
         </div>
     </footer>

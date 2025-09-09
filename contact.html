@@ -86,9 +86,12 @@
     .social-links { display: flex; gap: 16px; }
     .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--card-bg); transition: var(--transition); }
     .social-links a:hover { background: #333; transform: translateY(-3px); }
-    .footer-bottom { padding-top: 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary); font-size: 14px; }
+    .footer-bottom { padding-top: 40px; border-top: 1px solid var(--border); display: flex; justify-content: center; align-items: center; color: var(--text-secondary); font-size: 14px; }
     .footer-bottom-links { display: flex; gap: 24px; }
     .footer-bottom .logo-img { height: clamp(22px, 3.2vw, 28px); width: auto; display: block; object-fit: contain; }
+    /* Highlight for Digitalwin credit */
+    .designed-by a { color: #A88A5F; font-weight: 800; text-decoration: underline; }
+    .designed-by a:hover { color: #ffffff; }
 
     @media (max-width: 1024px) {
       .hero h1 { font-size: 48px; }
@@ -248,12 +251,13 @@
             </div>
             
             <div class="footer-bottom">
-                <p>© <span id="y"></span> Vysh Interior Design. All rights reserved.</p>
-                <div class="footer-bottom-links">
+                <!-- <p>© <span id="y"></span> Vysh Interior Design. All rights reserved.</p> -->
+                <!-- <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
                     <a href="#">Cookie Policy</a>
-                </div>
+                </div> -->
+                <p class="designed-by">Designed by Digitalwin Technologies - <a href="https://digitalwin.in/" target="_blank" rel="noopener">digitalwin.in</a></p>
             </div>
         </div>
     </footer>
